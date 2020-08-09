@@ -10,10 +10,23 @@ import './css/popup.css'
 
 const e = React.createElement;
 
-const CharacterBox = ({ name, picture }) => <div class="characterBox">
-    <div class="characterPortrait"><img src={picture}></img></div>
-    <span>{name}</span>
-</div>
+const CharacterBox = ({ name, picture, callBack }) =>
+    <Popup
+        trigger={
+            <div class="characterBox">
+                <button
+                    value={name}
+                    class="characterPortrait">
+                    <img src={picture} />
+                </button>
+                <span>{name}</span>
+            </div>
+        }
+        keepTooltipInside>
+        {close => (
+            <button class="button" onClick={() => { callBack(name, "NEUTRAL"); close() }}> Remove </button>
+        )}
+    </Popup >
 
 const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
     let borderColorClass = "";
@@ -32,9 +45,8 @@ const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
             break;
     }
 
-
     return <Popup
-        className="example-warper"
+        class="example-warper"
         trigger={
             <button
                 class={`borderedBox ${borderColorClass}`}
@@ -42,12 +54,12 @@ const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
                 <img src={picture} />
             </button>
         }
-        position="right center">
+        keepTooltipInside>
         {close => (
             <div>
-                <button className="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
-                <button className="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
-                <button className="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
+                <button class="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
+                <button class="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
+                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
             </div>)}
     </Popup >
 }
@@ -141,8 +153,7 @@ class Container extends React.Component {
                 Zelda: { name: 'Zelda', picture: Imgs.Zelda, status: 'NEUTRAL' },
                 ZeroSuitSamus: { name: 'ZeroSuitSamus', picture: Imgs.ZeroSuitSamus, status: 'NEUTRAL' },
             },
-
-            popupShown: false
+            searchText: ""
         };
     }
 
@@ -165,7 +176,6 @@ class Container extends React.Component {
 
     };
 
-
     clearAll = () => {
         let copy = {}
         Object.assign(copy, this.state.characterList)
@@ -180,7 +190,6 @@ class Container extends React.Component {
             characterList: { ...copy }
         })
     }
-
 
     clearBans = () => {
         let copy = {}
@@ -235,6 +244,18 @@ class Container extends React.Component {
         })
     }
 
+    getSearchtext = () => {
+        return this.state.searchText;
+    }
+
+    onSearchChange = ({ target: { value } }) => {
+        this.setState({
+            ...this.state,
+            searchText: value
+        })
+    }
+
+
     render() {
         return <div style={{ display: "flex" }}>
 
@@ -244,15 +265,15 @@ class Container extends React.Component {
                     {
                         Object.values(this.state.characterList)
                             .filter(character => character.status === "BAN" && character.currentRound)
-                            .map(character => <CharacterBox name={character.name} picture={character.picture} ></CharacterBox>)
+                            .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
 
                     }
                 </div>
             </div>
 
 
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
 
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div class="headerButtons">
                     <button class="headerButton" onClick={this.clearAll}>
                         Clear All
@@ -267,11 +288,25 @@ class Container extends React.Component {
                         New Round
                 </button>
                 </div>
+                <div className="search-container">
+                    <label id="txtCharSearch">Search </label>
+                    <input
+                        type="text"
+                        onChange={e => this.onSearchChange(e)}
+                    />
+                </div>
+
+
                 <div class="characterContainer">
 
                     {
-                        Object.values(this.state.characterList).map(character => <BorderedCharacterBox name={character.name} picture={character.picture} status={character.status}
-                            callBack={this.changeStatus} ></BorderedCharacterBox>)
+                        Object.values(this.state.characterList)
+                            .filter(character => {
+                                let searchValue = RegExp(".*" + this.getSearchtext().toLocaleLowerCase() + ".*")
+                                return searchValue.test(character.name.toLocaleLowerCase())
+                            })
+                            .map(character => <BorderedCharacterBox name={character.name} picture={character.picture} status={character.status}
+                                callBack={this.changeStatus} ></BorderedCharacterBox>)
                     }
                 </div>
             </div>
@@ -283,7 +318,7 @@ class Container extends React.Component {
                     {
                         Object.values(this.state.characterList)
                             .filter(character => character.status === "TEAM1" && character.currentRound)
-                            .map(character => <CharacterBox name={character.name} picture={character.picture} ></CharacterBox>)
+                            .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
 
                     }
                 </div>
@@ -294,7 +329,7 @@ class Container extends React.Component {
                     {
                         Object.values(this.state.characterList)
                             .filter(character => character.status === "TEAM2" && character.currentRound)
-                            .map(character => <CharacterBox name={character.name} picture={character.picture} ></CharacterBox>)
+                            .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
 
                     }
                 </div>
