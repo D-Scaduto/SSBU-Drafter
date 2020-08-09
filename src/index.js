@@ -1,19 +1,95 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import Popup from "react-popup";
 import Popup from "reactjs-popup";
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+import BanjoKazooie from "../resources/characters/BanjoKazooie.png";
+import Bayonetta from "../resources/characters/Bayonetta.png";
+import Bowser from "../resources/characters/Bowser.png";
+import BowserJr from "../resources/characters/BowserJr.png";
+import Byleth from "../resources/characters/Byleth.png";
+import CaptainFalcon from "../resources/characters/CaptainFalcon.png";
+import Chrom from "../resources/characters/Chrom.png";
+import Cloud from "../resources/characters/Cloud.png";
+import Corrin from "../resources/characters/Corrin.png";
+import Daisy from "../resources/characters/Daisy.png";
+import DarkPit from "../resources/characters/DarkPit.png";
+import DarkSamus from "../resources/characters/DarkSamus.png";
+import DiddyKong from "../resources/characters/DiddyKong.png";
+import DonkeyKong from "../resources/characters/DonkeyKong.png";
+import DrMario from "../resources/characters/DrMario.png";
+import DuckHunt from "../resources/characters/DuckHunt.png";
+import Falco from "../resources/characters/Falco.png";
+import Fox from "../resources/characters/Fox.png";
+import Ganondorf from "../resources/characters/Ganondorf.png";
+import Greninja from "../resources/characters/Greninja.png";
+import IceClimbers from "../resources/characters/IceClimbers.png";
+import Ike from "../resources/characters/Ike.png";
+import Incineroar from "../resources/characters/Incineroar.png";
+import Inkling from "../resources/characters/Inkling.png";
+import Isabelle from "../resources/characters/Isabelle.png";
+import Jigglypuff from "../resources/characters/Jigglypuff.png";
+import Joker from "../resources/characters/Joker.png";
+import Ken from "../resources/characters/Ken.png";
+import KingDedede from "../resources/characters/KingDedede.png";
+import KingKRool from "../resources/characters/KingKRool.png";
+import Kirby from "../resources/characters/Kirby.png";
+import Link from "../resources/characters/Link.png";
+import LittleMac from "../resources/characters/LittleMac.png";
+import Lucario from "../resources/characters/Lucario.png";
+import Lucas from "../resources/characters/Lucas.png";
+import Lucina from "../resources/characters/Lucina.png";
+import Luigi from "../resources/characters/Luigi.png";
+import Luminary from "../resources/characters/Luminary.png";
+import Man from "../resources/characters/Man.png";
+import Mario from "../resources/characters/Mario.png";
+import Marth from "../resources/characters/Marth.png";
+import MegaMan from "../resources/characters/MegaMan.png";
+import MetaKnight from "../resources/characters/MetaKnight.png";
+import Mewtwo from "../resources/characters/Mewtwo.png";
+import MiiBrawler from "../resources/characters/MiiBrawler.png";
+import MiiGunner from "../resources/characters/MiiGunner.png";
+import MiiSwordfighter from "../resources/characters/MiiSwordfighter.png";
+import MinMin from "../resources/characters/MinMin.png";
+import MrGameWatch from "../resources/characters/MrGameWatch.png";
+import Ness from "../resources/characters/Ness.png";
+import Olimar from "../resources/characters/Olimar.png";
+import Palutena from "../resources/characters/Palutena.png";
+import Peach from "../resources/characters/Peach.png";
+import Pichu from "../resources/characters/Pichu.png";
+import Pikachu from "../resources/characters/Pikachu.png";
+import PiranhaPlant from "../resources/characters/PiranhaPlant.png";
+import Pit from "../resources/characters/Pit.png";
+import PokemonTrainer from "../resources/characters/PokemonTrainer.png";
+import RichterBelmont from "../resources/characters/RichterBelmont.png";
+import Ridley from "../resources/characters/Ridley.png";
+import ROB from "../resources/characters/ROB.png";
+import Robin from "../resources/characters/Robin.png";
+import RosalinaLuma from "../resources/characters/RosalinaLuma.png";
+import Roy from "../resources/characters/Roy.png";
+import Ryu from "../resources/characters/Ryu.png";
+import Samus from "../resources/characters/Samus.png";
+import Sheik from "../resources/characters/Sheik.png";
+import Shulk from "../resources/characters/Shulk.png";
+import SimonBelmont from "../resources/characters/SimonBelmont.png";
+import Snake from "../resources/characters/Snake.png";
+import Sonic from "../resources/characters/Sonic.png";
+import Terry from "../resources/characters/Terry.png";
+import ToonLink from "../resources/characters/ToonLink.png";
+import Villager from "../resources/characters/Villager.png";
+import Wario from "../resources/characters/Wario.png";
+import WiiFitTrainer from "../resources/characters/WiiFitTrainer.png";
+import Wolf from "../resources/characters/Wolf.png";
+import Yoshi from "../resources/characters/Yoshi.png";
+import YoungLink from "../resources/characters/YoungLink.png";
+import Zelda from "../resources/characters/Zelda.png";
+import ZeroSuitSamus from "../resources/characters/ZeroSuitSamus.png";
 
 const e = React.createElement;
 
 const CharacterBox = ({ name, picture }) => <div class="characterBox">
     <div class="test"><img src={picture}></img></div>
-    {/* <div class="test">hiii</div> */}
     <span>{name}</span>
 </div>
 
-// possible Statuses  = BANNED  | PICKED | NEUTRAL( NULL)
 const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
     let borderColorClass = "";
 
@@ -29,8 +105,6 @@ const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
             break;
         case 'NEUTRAL':
             break;
-        default:
-        // throw error
     }
 
 
@@ -60,87 +134,89 @@ class Container extends React.Component {
 
         this.state = {
             characterList: {
-                BanjoKazooie: { name: 'BanjoKazooie', picture: "../resources/characters//BanjoKazooie.png", status: 'NEUTRAL' },
-                Bayonetta: { name: 'Bayonetta', picture: "../resources/characters//Bayonetta.png", status: 'NEUTRAL' },
-                Bowser: { name: 'Bowser', picture: "../resources/characters//Bowser.png", status: 'NEUTRAL' },
-                BowserJr: { name: 'BowserJr', picture: "../resources/characters//BowserJr.png", status: 'NEUTRAL' },
-                Byleth: { name: 'Byleth', picture: "../resources/characters//Byleth.png", status: 'NEUTRAL' },
-                CaptainFalcon: { name: 'CaptainFalcon', picture: "../resources/characters//CaptainFalcon.png", status: 'NEUTRAL' },
-                Chrom: { name: 'Chrom', picture: "../resources/characters//Chrom.png", status: 'NEUTRAL' },
-                Cloud: { name: 'Cloud', picture: "../resources/characters//Cloud.png", status: 'NEUTRAL' },
-                Corrin: { name: 'Corrin', picture: "../resources/characters//Corrin.png", status: 'NEUTRAL' },
-                Daisy: { name: 'Daisy', picture: "../resources/characters//Daisy.png", status: 'NEUTRAL' },
-                DarkPit: { name: 'DarkPit', picture: "../resources/characters//DarkPit.png", status: 'NEUTRAL' },
-                DarkSamus: { name: 'DarkSamus', picture: "../resources/characters//DarkSamus.png", status: 'NEUTRAL' },
-                DiddyKong: { name: 'DiddyKong', picture: "../resources/characters//DiddyKong.png", status: 'NEUTRAL' },
-                DonkeyKong: { name: 'DonkeyKong', picture: "../resources/characters//DonkeyKong.png", status: 'NEUTRAL' },
-                DrMario: { name: 'DrMario', picture: "../resources/characters//DrMario.png", status: 'NEUTRAL' },
-                DuckHunt: { name: 'DuckHunt', picture: "../resources/characters//DuckHunt.png", status: 'NEUTRAL' },
-                Falco: { name: 'Falco', picture: "../resources/characters//Falco.png", status: 'NEUTRAL' },
-                Fox: { name: 'Fox', picture: "../resources/characters//Fox.png", status: 'NEUTRAL' },
-                Ganondorf: { name: 'Ganondorf', picture: "../resources/characters//Ganondorf.png", status: 'NEUTRAL' },
-                Greninja: { name: 'Greninja', picture: "../resources/characters//Greninja.png", status: 'NEUTRAL' },
-                IceClimbers: { name: 'IceClimbers', picture: "../resources/characters//IceClimbers.png", status: 'NEUTRAL' },
-                Ike: { name: 'Ike', picture: "../resources/characters//Ike.png", status: 'NEUTRAL' },
-                Incineroar: { name: 'Incineroar', picture: "../resources/characters//Incineroar.png", status: 'NEUTRAL' },
-                Inkling: { name: 'Inkling', picture: "../resources/characters//Inkling.png", status: 'NEUTRAL' },
-                Isabelle: { name: 'Isabelle', picture: "../resources/characters//Isabelle.png", status: 'NEUTRAL' },
-                Jigglypuff: { name: 'Jigglypuff', picture: "../resources/characters//Jigglypuff.png", status: 'NEUTRAL' },
-                Joker: { name: 'Joker', picture: "../resources/characters//Joker.png", status: 'NEUTRAL' },
-                Ken: { name: 'Ken', picture: "../resources/characters//Ken.png", status: 'NEUTRAL' },
-                KingDedede: { name: 'KingDedede', picture: "../resources/characters//KingDedede.png", status: 'NEUTRAL' },
-                KingKRool: { name: 'KingKRool', picture: "../resources/characters//KingKRool.png", status: 'NEUTRAL' },
-                Kirby: { name: 'Kirby', picture: "../resources/characters//Kirby.png", status: 'NEUTRAL' },
-                Link: { name: 'Link', picture: "../resources/characters//Link.png", status: 'NEUTRAL' },
-                LittleMac: { name: 'LittleMac', picture: "../resources/characters//LittleMac.png", status: 'NEUTRAL' },
-                Lucario: { name: 'Lucario', picture: "../resources/characters//Lucario.png", status: 'NEUTRAL' },
-                Lucas: { name: 'Lucas', picture: "../resources/characters//Lucas.png", status: 'NEUTRAL' },
-                Lucina: { name: 'Lucina', picture: "../resources/characters//Lucina.png", status: 'NEUTRAL' },
-                Luigi: { name: 'Luigi', picture: "../resources/characters//Luigi.png", status: 'NEUTRAL' },
-                Luminary: { name: 'Luminary', picture: "../resources/characters//Luminary.png", status: 'NEUTRAL' },
-                Man: { name: 'Man', picture: "../resources/characters//Man.png", status: 'NEUTRAL' },
-                Mario: { name: 'Mario', picture: "../resources/characters//Mario.png", status: 'NEUTRAL' },
-                Marth: { name: 'Marth', picture: "../resources/characters//Marth.png", status: 'NEUTRAL' },
-                MegaMan: { name: 'MegaMan', picture: "../resources/characters//MegaMan.png", status: 'NEUTRAL' },
-                MetaKnight: { name: 'MetaKnight', picture: "../resources/characters//MetaKnight.png", status: 'NEUTRAL' },
-                Mewtwo: { name: 'Mewtwo', picture: "../resources/characters//Mewtwo.png", status: 'NEUTRAL' },
-                MiiBrawler: { name: 'MiiBrawler', picture: "../resources/characters//MiiBrawler.png", status: 'NEUTRAL' },
-                MiiGunner: { name: 'MiiGunner', picture: "../resources/characters//MiiGunner.png", status: 'NEUTRAL' },
-                MiiSwordfighter: { name: 'MiiSwordfighter', picture: "../resources/characters//MiiSwordfighter.png", status: 'NEUTRAL' },
-                MinMin: { name: 'MinMin', picture: "../resources/characters//MinMin.png", status: 'NEUTRAL' },
-                MrGameWatch: { name: 'MrGameWatch', picture: "../resources/characters//MrGameWatch.png", status: 'NEUTRAL' },
-                Ness: { name: 'Ness', picture: "../resources/characters//Ness.png", status: 'NEUTRAL' },
-                Olimar: { name: 'Olimar', picture: "../resources/characters//Olimar.png", status: 'NEUTRAL' },
-                Palutena: { name: 'Palutena', picture: "../resources/characters//Palutena.png", status: 'NEUTRAL' },
-                Peach: { name: 'Peach', picture: "../resources/characters//Peach.png", status: 'NEUTRAL' },
-                Pichu: { name: 'Pichu', picture: "../resources/characters//Pichu.png", status: 'NEUTRAL' },
-                Pikachu: { name: 'Pikachu', picture: "../resources/characters//Pikachu.png", status: 'NEUTRAL' },
-                PiranhaPlant: { name: 'PiranhaPlant', picture: "../resources/characters//PiranhaPlant.png", status: 'NEUTRAL' },
-                Pit: { name: 'Pit', picture: "../resources/characters//Pit.png", status: 'NEUTRAL' },
-                PokemonTrainer: { name: 'PokemonTrainer', picture: "../resources/characters//PokemonTrainer.png", status: 'NEUTRAL' },
-                RichterBelmont: { name: 'RichterBelmont', picture: "../resources/characters//RichterBelmont.png", status: 'NEUTRAL' },
-                Ridley: { name: 'Ridley', picture: "../resources/characters//Ridley.png", status: 'NEUTRAL' },
-                ROB: { name: 'ROB', picture: "../resources/characters//ROB.png", status: 'NEUTRAL' },
-                Robin: { name: 'Robin', picture: "../resources/characters//Robin.png", status: 'NEUTRAL' },
-                RosalinaLuma: { name: 'RosalinaLuma', picture: "../resources/characters//RosalinaLuma.png", status: 'NEUTRAL' },
-                Roy: { name: 'Roy', picture: "../resources/characters//Roy.png", status: 'NEUTRAL' },
-                Ryu: { name: 'Ryu', picture: "../resources/characters//Ryu.png", status: 'NEUTRAL' },
-                Samus: { name: 'Samus', picture: "../resources/characters//Samus.png", status: 'NEUTRAL' },
-                Sheik: { name: 'Sheik', picture: "../resources/characters//Sheik.png", status: 'NEUTRAL' },
-                Shulk: { name: 'Shulk', picture: "../resources/characters//Shulk.png", status: 'NEUTRAL' },
-                SimonBelmont: { name: 'SimonBelmont', picture: "../resources/characters//SimonBelmont.png", status: 'NEUTRAL' },
-                Snake: { name: 'Snake', picture: "../resources/characters//Snake.png", status: 'NEUTRAL' },
-                Sonic: { name: 'Sonic', picture: "../resources/characters//Sonic.png", status: 'NEUTRAL' },
-                Terry: { name: 'Terry', picture: "../resources/characters//Terry.png", status: 'NEUTRAL' },
-                ToonLink: { name: 'ToonLink', picture: "../resources/characters//ToonLink.png", status: 'NEUTRAL' },
-                Villager: { name: 'Villager', picture: "../resources/characters//Villager.png", status: 'NEUTRAL' },
-                Wario: { name: 'Wario', picture: "../resources/characters//Wario.png", status: 'NEUTRAL' },
-                WiiFitTrainer: { name: 'WiiFitTrainer', picture: "../resources/characters//WiiFitTrainer.png", status: 'NEUTRAL' },
-                Wolf: { name: 'Wolf', picture: "../resources/characters//Wolf.png", status: 'NEUTRAL' },
-                Yoshi: { name: 'Yoshi', picture: "../resources/characters//Yoshi.png", status: 'NEUTRAL' },
-                YoungLink: { name: 'YoungLink', picture: "../resources/characters//YoungLink.png", status: 'NEUTRAL' },
-                Zelda: { name: 'Zelda', picture: "../resources/characters//Zelda.png", status: 'NEUTRAL' },
-                ZeroSuitSamus: { name: 'ZeroSuitSamus', picture: "../resources/characters//ZeroSuitSamus.png", status: 'NEUTRAL' }
+                BanjoKazooie: { name: 'BanjoKazooie', picture: BanjoKazooie, status: 'NEUTRAL' },
+                Bayonetta: { name: 'Bayonetta', picture: Bayonetta, status: 'NEUTRAL' },
+                Bowser: { name: 'Bowser', picture: Bowser, status: 'NEUTRAL' },
+                BowserJr: { name: 'BowserJr', picture: BowserJr, status: 'NEUTRAL' },
+                Byleth: { name: 'Byleth', picture: Byleth, status: 'NEUTRAL' },
+                CaptainFalcon: { name: 'CaptainFalcon', picture: CaptainFalcon, status: 'NEUTRAL' },
+                Chrom: { name: 'Chrom', picture: Chrom, status: 'NEUTRAL' },
+                Cloud: { name: 'Cloud', picture: Cloud, status: 'NEUTRAL' },
+                Corrin: { name: 'Corrin', picture: Corrin, status: 'NEUTRAL' },
+                Daisy: { name: 'Daisy', picture: Daisy, status: 'NEUTRAL' },
+                DarkPit: { name: 'DarkPit', picture: DarkPit, status: 'NEUTRAL' },
+                DarkSamus: { name: 'DarkSamus', picture: DarkSamus, status: 'NEUTRAL' },
+                DiddyKong: { name: 'DiddyKong', picture: DiddyKong, status: 'NEUTRAL' },
+                DonkeyKong: { name: 'DonkeyKong', picture: DonkeyKong, status: 'NEUTRAL' },
+                DrMario: { name: 'DrMario', picture: DrMario, status: 'NEUTRAL' },
+                DuckHunt: { name: 'DuckHunt', picture: DuckHunt, status: 'NEUTRAL' },
+                Falco: { name: 'Falco', picture: Falco, status: 'NEUTRAL' },
+                Fox: { name: 'Fox', picture: Fox, status: 'NEUTRAL' },
+                Ganondorf: { name: 'Ganondorf', picture: Ganondorf, status: 'NEUTRAL' },
+                Greninja: { name: 'Greninja', picture: Greninja, status: 'NEUTRAL' },
+                IceClimbers: { name: 'IceClimbers', picture: IceClimbers, status: 'NEUTRAL' },
+                Ike: { name: 'Ike', picture: Ike, status: 'NEUTRAL' },
+                Incineroar: { name: 'Incineroar', picture: Incineroar, status: 'NEUTRAL' },
+                Inkling: { name: 'Inkling', picture: Inkling, status: 'NEUTRAL' },
+                Isabelle: { name: 'Isabelle', picture: Isabelle, status: 'NEUTRAL' },
+                Jigglypuff: { name: 'Jigglypuff', picture: Jigglypuff, status: 'NEUTRAL' },
+                Joker: { name: 'Joker', picture: Joker, status: 'NEUTRAL' },
+                Ken: { name: 'Ken', picture: Ken, status: 'NEUTRAL' },
+                KingDedede: { name: 'KingDedede', picture: KingDedede, status: 'NEUTRAL' },
+                KingKRool: { name: 'KingKRool', picture: KingKRool, status: 'NEUTRAL' },
+                Kirby: { name: 'Kirby', picture: Kirby, status: 'NEUTRAL' },
+                Link: { name: 'Link', picture: Link, status: 'NEUTRAL' },
+                LittleMac: { name: 'LittleMac', picture: LittleMac, status: 'NEUTRAL' },
+                Lucario: { name: 'Lucario', picture: Lucario, status: 'NEUTRAL' },
+                Lucas: { name: 'Lucas', picture: Lucas, status: 'NEUTRAL' },
+                Lucina: { name: 'Lucina', picture: Lucina, status: 'NEUTRAL' },
+                Luigi: { name: 'Luigi', picture: Luigi, status: 'NEUTRAL' },
+                Luminary: { name: 'Luminary', picture: Luminary, status: 'NEUTRAL' },
+                Man: { name: 'Man', picture: Man, status: 'NEUTRAL' },
+                Mario: { name: 'Mario', picture: Mario, status: 'NEUTRAL' },
+                Marth: { name: 'Marth', picture: Marth, status: 'NEUTRAL' },
+                MegaMan: { name: 'MegaMan', picture: MegaMan, status: 'NEUTRAL' },
+                MetaKnight: { name: 'MetaKnight', picture: MetaKnight, status: 'NEUTRAL' },
+                Mewtwo: { name: 'Mewtwo', picture: Mewtwo, status: 'NEUTRAL' },
+                MiiBrawler: { name: 'MiiBrawler', picture: MiiBrawler, status: 'NEUTRAL' },
+                MiiGunner: { name: 'MiiGunner', picture: MiiGunner, status: 'NEUTRAL' },
+                MiiSwordfighter: { name: 'MiiSwordfighter', picture: MiiSwordfighter, status: 'NEUTRAL' },
+                MinMin: { name: 'MinMin', picture: MinMin, status: 'NEUTRAL' },
+                MrGameWatch: { name: 'MrGameWatch', picture: MrGameWatch, status: 'NEUTRAL' },
+                Ness: { name: 'Ness', picture: Ness, status: 'NEUTRAL' },
+                Olimar: { name: 'Olimar', picture: Olimar, status: 'NEUTRAL' },
+                Palutena: { name: 'Palutena', picture: Palutena, status: 'NEUTRAL' },
+                Peach: { name: 'Peach', picture: Peach, status: 'NEUTRAL' },
+                Pichu: { name: 'Pichu', picture: Pichu, status: 'NEUTRAL' },
+                Pikachu: { name: 'Pikachu', picture: Pikachu, status: 'NEUTRAL' },
+                PiranhaPlant: { name: 'PiranhaPlant', picture: PiranhaPlant, status: 'NEUTRAL' },
+                Pit: { name: 'Pit', picture: Pit, status: 'NEUTRAL' },
+                PokemonTrainer: { name: 'PokemonTrainer', picture: PokemonTrainer, status: 'NEUTRAL' },
+                RichterBelmont: { name: 'RichterBelmont', picture: RichterBelmont, status: 'NEUTRAL' },
+                Ridley: { name: 'Ridley', picture: Ridley, status: 'NEUTRAL' },
+                ROB: { name: 'ROB', picture: ROB, status: 'NEUTRAL' },
+                Robin: { name: 'Robin', picture: Robin, status: 'NEUTRAL' },
+                RosalinaLuma: { name: 'RosalinaLuma', picture: RosalinaLuma, status: 'NEUTRAL' },
+                Roy: { name: 'Roy', picture: Roy, status: 'NEUTRAL' },
+                Ryu: { name: 'Ryu', picture: Ryu, status: 'NEUTRAL' },
+                Samus: { name: 'Samus', picture: Samus, status: 'NEUTRAL' },
+                Sheik: { name: 'Sheik', picture: Sheik, status: 'NEUTRAL' },
+                Shulk: { name: 'Shulk', picture: Shulk, status: 'NEUTRAL' },
+                SimonBelmont: { name: 'SimonBelmont', picture: SimonBelmont, status: 'NEUTRAL' },
+                Snake: { name: 'Snake', picture: Snake, status: 'NEUTRAL' },
+                Sonic: { name: 'Sonic', picture: Sonic, status: 'NEUTRAL' },
+                Terry: { name: 'Terry', picture: Terry, status: 'NEUTRAL' },
+                ToonLink: { name: 'ToonLink', picture: ToonLink, status: 'NEUTRAL' },
+                Villager: { name: 'Villager', picture: Villager, status: 'NEUTRAL' },
+                Wario: { name: 'Wario', picture: Wario, status: 'NEUTRAL' },
+                WiiFitTrainer: { name: 'WiiFitTrainer', picture: WiiFitTrainer, status: 'NEUTRAL' },
+                Wolf: { name: 'Wolf', picture: Wolf, status: 'NEUTRAL' },
+                Yoshi: { name: 'Yoshi', picture: Yoshi, status: 'NEUTRAL' },
+                YoungLink: { name: 'YoungLink', picture: YoungLink, status: 'NEUTRAL' },
+                Zelda: { name: 'Zelda', picture: Zelda, status: 'NEUTRAL' },
+                ZeroSuitSamus: { name: 'ZeroSuitSamus', picture: ZeroSuitSamus, status: 'NEUTRAL' },
+
+                BanjoKazooie: { name: 'BanjoKazooie', picture: BanjoKazooie, status: 'NEUTRAL' },
             },
 
             popupShown: false
