@@ -1,0 +1,62 @@
+ // Popup.create({
+                //     title: null,
+                //     content: 'Select a Team',
+                //     buttons: {
+                //         left: [{
+                //             text: 'Cancel',
+                //             className: 'danger',
+                //             action: function () {
+                //                 console.log("cancel button Popup")
+                //                 Popup.close();
+                //             }
+                //         }],
+                //         right: [{
+                //             text: 'Team 1',
+                //             action: function () {
+                //                 console.log("team 1 Popup")
+                //                 let teamName = "TEAM1"
+                //                 console.log(teamName)
+
+                //                 // do a deep copy, spread operator wasn't working
+                //                 copy = {}
+                //                 console.log("TEST" + this.state)
+                //                 Object.assign(copy, this.state.characterList)
+                //                 console.log("TEST" + copy)
+                //                 copy[name].status = currentAction
+                //                 copy[name].currentRound = true
+                //                 copy[name].teamName = teamName
+
+                //                 newPosition = this.state.formatPosition + 1
+                //                 this.setState({
+                //                     ...this.state,
+                //                     formatPosition: newPosition,
+                //                     characterList: { ...copy }
+                //                 })
+                //                 Popup.close();
+                //             }
+                //         }, {
+                //             text: 'Team 2',
+                //             action: function () {
+                //                 console.log("team 2 Popup")
+                //                 let teamName = "TEAM2"
+                //                 console.log(teamName)
+
+                //                 // do a deep copy, spread operator wasn't working
+                //                 copy = {}
+                //                 Object.assign(copy, this.state.characterList)
+
+                //                 copy[name].status = currentAction
+                //                 copy[name].currentRound = true
+                //                 copy[name].teamName = teamName
+
+                //                 newPosition = this.state.formatPosition + 1
+                //                 this.setState({
+                //                     ...this.state,
+                //                     formatPosition: newPosition,
+                //                     characterList: { ...copy }
+                //                 })
+                //                 Popup.close();
+                //             }
+                //         }]
+                //     }
+                // });
