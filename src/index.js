@@ -1,6 +1,8 @@
+// import libraries for code
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Popup from "reactjs-popup";
+// import images for webpack
 import BanjoKazooie from "../resources/characters/BanjoKazooie.png";
 import Bayonetta from "../resources/characters/Bayonetta.png";
 import Bowser from "../resources/characters/Bowser.png";
@@ -82,11 +84,14 @@ import Yoshi from "../resources/characters/Yoshi.png";
 import YoungLink from "../resources/characters/YoungLink.png";
 import Zelda from "../resources/characters/Zelda.png";
 import ZeroSuitSamus from "../resources/characters/ZeroSuitSamus.png";
+// import css stylesheets
+import './css/styles.css'
+import './css/popup.css'
 
 const e = React.createElement;
 
 const CharacterBox = ({ name, picture }) => <div class="characterBox">
-    <div class="test"><img src={picture}></img></div>
+    <div class="characterPortrait"><img src={picture}></img></div>
     <span>{name}</span>
 </div>
 
