@@ -24,7 +24,12 @@ const CharacterBox = ({ name, picture, callBack }) =>
         }
         keepTooltipInside>
         {close => (
-            <button class="button" onClick={() => { callBack(name, "NEUTRAL"); close() }}> Remove </button>
+            <div>
+                <button class="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
+                <button class="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
+                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
+                <button class="button" onClick={() => { callBack(name, "NEUTRAL"); close() }}> Neutrual </button>
+            </div>
         )}
     </Popup >
 
@@ -198,6 +203,7 @@ class Container extends React.Component {
         Object.keys(copy).map(function (key, index) {
             if (copy[key].status === "BAN") {
                 copy[key].currentRound = false
+                copy[key].status = "NEUTRAL"
             }
         });
 
@@ -215,6 +221,7 @@ class Container extends React.Component {
         Object.keys(copy).map(function (key, index) {
             if (copy[key].status === "TEAM1" || copy[key].status === "TEAM2") {
                 copy[key].currentRound = false
+                copy[key].status = "NEUTRAL"
             }
 
         });
@@ -226,16 +233,16 @@ class Container extends React.Component {
         })
     }
 
-    newRound = () => {
+    banAllTeams = () => {
         let copy = {}
 
         Object.assign(copy, this.state.characterList)
 
         Object.keys(copy).map(function (key, index) {
             if (copy[key].status === "TEAM1" || copy[key].status === "TEAM2") {
-                copy[key].status = "NEUTRAL"
+                copy[key].status = "BAN"
             }
-            copy[key].currentRound = false
+            copy[key].currentRound = true
         });
 
         this.setState({
@@ -260,8 +267,8 @@ class Container extends React.Component {
         return <div style={{ display: "flex" }}>
 
             <div class="characterContainerBanContainer">
-                <div id="ban-area" class="characterContainerBan ">
-                    <div class="section-header">BAN</div>
+                <div class="section-header">BAN</div>
+                <div id="ban-area" class="characterContainerBan">
                     {
                         Object.values(this.state.characterList)
                             .filter(character => character.status === "BAN" && character.currentRound)
@@ -276,7 +283,7 @@ class Container extends React.Component {
 
                 <div class="headerButtons">
                     <button class="headerButton" onClick={this.clearAll}>
-                        Clear All
+                        Reset
                 </button>
                     <button class="headerButton" onClick={this.clearBans}>
                         Clear Bans
@@ -284,8 +291,8 @@ class Container extends React.Component {
                     <button class="headerButton" onClick={this.clearTeams}>
                         Clear Teams
                 </button>
-                    <button class="headerButton" onClick={this.newRound}>
-                        New Round
+                    <button class="headerButton" onClick={this.banAllTeams}>
+                        Ban Teams
                 </button>
                 </div>
                 <div className="search-container">
@@ -303,7 +310,7 @@ class Container extends React.Component {
                         Object.values(this.state.characterList)
                             .filter(character => {
                                 let searchValue = RegExp(".*" + this.getSearchtext().toLocaleLowerCase() + ".*")
-                                return searchValue.test(character.name.toLocaleLowerCase())
+                                return searchValue.test(character.name.toLocaleLowerCase()) && character.status === "NEUTRAL"
                             })
                             .map(character => <BorderedCharacterBox name={character.name} picture={character.picture} status={character.status}
                                 callBack={this.changeStatus} ></BorderedCharacterBox>)
@@ -313,25 +320,30 @@ class Container extends React.Component {
 
 
             <div class="pickArea">
-                <div id="team1-area" class="characterContainerTeam1">
+                <div class="team1-container" >
                     <div class="section-header">TEAM 1</div>
-                    {
-                        Object.values(this.state.characterList)
-                            .filter(character => character.status === "TEAM1" && character.currentRound)
-                            .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
+                    <div id="team1-area" class="characterContainerTeam1">
+                        {
+                            Object.values(this.state.characterList)
+                                .filter(character => character.status === "TEAM1" && character.currentRound)
+                                .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
 
-                    }
+                        }
+                    </div>
                 </div>
 
 
-                <div id="team2-area" stle={{}} class="characterContainerTeam2">
+                <div class="team2-container" >
                     <div class="section-header">TEAM 2</div>
-                    {
-                        Object.values(this.state.characterList)
-                            .filter(character => character.status === "TEAM2" && character.currentRound)
-                            .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
+                    <div id="team2-area" class="characterContainerTeam2">
 
-                    }
+                        {
+                            Object.values(this.state.characterList)
+                                .filter(character => character.status === "TEAM2" && character.currentRound)
+                                .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
+
+                        }
+                    </div>
                 </div>
             </div>
         </div >
