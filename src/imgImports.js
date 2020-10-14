@@ -79,6 +79,7 @@ import Yoshi from "../resources/characters/Yoshi.png";
 import YoungLink from "../resources/characters/YoungLink.png";
 import Zelda from "../resources/characters/Zelda.png";
 import ZeroSuitSamus from "../resources/characters/ZeroSuitSamus.png";
+import Steve from "../resources/characters/Steve.png";
 
 
 
@@ -163,3 +164,4 @@ export { Yoshi }
 export { YoungLink }
 export { Zelda }
 export { ZeroSuitSamus }
+export { Steve }
