@@ -35,8 +35,8 @@ import Lucario from "../resources/characters/Lucario.png";
 import Lucas from "../resources/characters/Lucas.png";
 import Lucina from "../resources/characters/Lucina.png";
 import Luigi from "../resources/characters/Luigi.png";
-import Luminary from "../resources/characters/Luminary.png";
-import Man from "../resources/characters/Man.png";
+import Hero from "../resources/characters/Hero.png";
+import PacMan from "../resources/characters/PacMan.png";
 import Mario from "../resources/characters/Mario.png";
 import Marth from "../resources/characters/Marth.png";
 import MegaMan from "../resources/characters/MegaMan.png";
@@ -120,8 +120,8 @@ export { Lucario }
 export { Lucas }
 export { Lucina }
 export { Luigi }
-export { Luminary }
-export { Man }
+export { Hero }
+export { PacMan }
 export { Mario }
 export { Marth }
 export { MegaMan }
