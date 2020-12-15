@@ -142,6 +142,7 @@ class Container extends React.Component {
                 Roy: { name: 'Roy', picture: Imgs.Roy, status: 'NEUTRAL' },
                 Ryu: { name: 'Ryu', picture: Imgs.Ryu, status: 'NEUTRAL' },
                 Samus: { name: 'Samus', picture: Imgs.Samus, status: 'NEUTRAL' },
+                Sephiroth: { name: 'Sephiroth', picture: Imgs.Sephiroth, status: 'NEUTRAL' },
                 Sheik: { name: 'Sheik', picture: Imgs.Sheik, status: 'NEUTRAL' },
                 Shulk: { name: 'Shulk', picture: Imgs.Shulk, status: 'NEUTRAL' },
                 SimonBelmont: { name: 'SimonBelmont', picture: Imgs.SimonBelmont, status: 'NEUTRAL' },
