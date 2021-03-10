@@ -1,6 +1,6 @@
 
 :root {
-    --ban-color: #E13921;
+    --pool-color: #E13921;
     --team-1-color: #2f6690;
     --team-2-color: #7a9b76;
 }
@@ -57,7 +57,7 @@ body {
     width: 200px;
 }
 
-.characterContainerBanContainer {
+.characterContainerPoolContainer {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -66,8 +66,8 @@ body {
     top: 30px;
 }
 
-.characterContainerBan  {
-    background-color: var(--ban-color);
+.characterContainerPool  {
+    background-color: var(--pool-color);
     display: flex;
     border-radius: 0 0 10px 10px;
     flex-direction: column;
@@ -189,8 +189,8 @@ position: absolute;
     margin-top: 30px;  
 }
 
-.banBorder{
-    border: 5px solid var(--ban-color)
+.poolBorder{
+    border: 5px solid var(--pool-color)
 }
 
 .t1Border{

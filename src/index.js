@@ -27,7 +27,7 @@ const CharacterBox = ({ name, picture, callBack }) =>
             <div>
                 <button class="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
                 <button class="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
-                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
+                <button class="button" onClick={() => { callBack(name, "POOL"); close() }}> Pool </button>
                 <button class="button" onClick={() => { callBack(name, "NEUTRAL"); close() }}> Neutrual </button>
             </div>
         )}
@@ -37,8 +37,8 @@ const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
     let borderColorClass = "";
 
     switch (status) {
-        case 'BAN':
-            borderColorClass = "banBorder"
+        case 'POOL':
+            borderColorClass = "poolBorder"
             break;
         case 'TEAM1':
             borderColorClass = "t1Border"
@@ -64,7 +64,7 @@ const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
             <div>
                 <button class="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
                 <button class="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
-                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
+                <button class="button" onClick={() => { callBack(name, "POOL"); close() }}> Pool </button>
             </div>)}
     </Popup >
 }
@@ -199,12 +199,12 @@ class Container extends React.Component {
         })
     }
 
-    clearBans = () => {
+    clearPool = () => {
         let copy = {}
         Object.assign(copy, this.state.characterList)
 
         Object.keys(copy).map(function (key, index) {
-            if (copy[key].status === "BAN") {
+            if (copy[key].status === "POOL") {
                 copy[key].currentRound = false
                 copy[key].status = "NEUTRAL"
             }
@@ -236,24 +236,6 @@ class Container extends React.Component {
         })
     }
 
-    banAllTeams = () => {
-        let copy = {}
-
-        Object.assign(copy, this.state.characterList)
-
-        Object.keys(copy).map(function (key, index) {
-            if (copy[key].status === "TEAM1" || copy[key].status === "TEAM2") {
-                copy[key].status = "BAN"
-            }
-            copy[key].currentRound = true
-        });
-
-        this.setState({
-            ...this.state,
-            characterList: { ...copy }
-        })
-    }
-
     getSearchtext = () => {
         return this.state.searchText;
     }
@@ -269,12 +251,12 @@ class Container extends React.Component {
     render() {
         return <div style={{ display: "flex" }}>
 
-            <div class="characterContainerBanContainer">
-                <div class="section-header">BAN</div>
-                <div id="ban-area" class="characterContainerBan">
+            <div class="characterContainerPoolContainer">
+                <div class="section-header">POOL</div>
+                <div id="pool-area" class="characterContainerPool">
                     {
                         Object.values(this.state.characterList)
-                            .filter(character => character.status === "BAN" && character.currentRound)
+                            .filter(character => character.status === "POOL" && character.currentRound)
                             .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
 
                     }
@@ -288,14 +270,11 @@ class Container extends React.Component {
                     <button class="headerButton" onClick={this.clearAll}>
                         Reset
                 </button>
-                    <button class="headerButton" onClick={this.clearBans}>
-                        Clear Bans
+                    <button class="headerButton" onClick={this.clearPool}>
+                        Clear Pool
                 </button>
                     <button class="headerButton" onClick={this.clearTeams}>
                         Clear Teams
-                </button>
-                    <button class="headerButton" onClick={this.banAllTeams}>
-                        Ban Teams
                 </button>
                 </div>
                 <div className="search-container">
