@@ -1,0 +1,7 @@
+just a helpful guide because this code base does not get updated very often
+
+
+1) navigate to project root
+2) npx webpack -w 
+    this is to have it run in the background and watch for any changes
+3) localhost:xxxxxx

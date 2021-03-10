@@ -134,6 +134,7 @@ class Container extends React.Component {
                 PiranhaPlant: { name: 'PiranhaPlant', picture: Imgs.PiranhaPlant, status: 'NEUTRAL' },
                 Pit: { name: 'Pit', picture: Imgs.Pit, status: 'NEUTRAL' },
                 PokemonTrainer: { name: 'PokemonTrainer', picture: Imgs.PokemonTrainer, status: 'NEUTRAL' },
+                PyraMythra: { name: 'PyraMythra', picture: Imgs.Pyra_Mythra, status: 'NEUTRAL' },
                 RichterBelmont: { name: 'RichterBelmont', picture: Imgs.RichterBelmont, status: 'NEUTRAL' },
                 Ridley: { name: 'Ridley', picture: Imgs.Ridley, status: 'NEUTRAL' },
                 ROB: { name: 'ROB', picture: Imgs.ROB, status: 'NEUTRAL' },

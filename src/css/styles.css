@@ -5,6 +5,10 @@
     --team-2-color: #7a9b76;
 }
 
+body {
+ box-sizing: border-box;
+}
+
 .global-background {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
@@ -120,6 +124,12 @@
 
 }
 
+.borderedBox img {
+    object-fit: contain;
+    height: 178px;
+    width: 130px;
+}
+
 .characterBox {
     display:flex;
     flex-direction: column ;
@@ -136,11 +146,11 @@
 }
 
 .characterBox img {
-    /* object-fit: none;*/
-    /*object-position: 50% 13%; */
+    object-fit: contain;
+    object-position: 50% 13%;
     width: 100%;
     height: 100%;
-/*     position: absolute;*/
+position: absolute;
     left: 0;
     right: 0;
     top: 0;
