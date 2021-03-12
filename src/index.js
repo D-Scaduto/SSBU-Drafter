@@ -1,10 +1,7 @@
-// import libraries for code
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Popup from "reactjs-popup";
-// import images for webpack
 import * as Imgs from './imgImports.js'
-// import css stylesheets
 import './css/styles.css'
 import './css/popup.css'
 
