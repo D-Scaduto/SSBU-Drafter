@@ -82,6 +82,7 @@ import ZeroSuitSamus from "../resources/characters/ZeroSuitSamus.png";
 import Steve from "../resources/characters/Steve.png";
 import Sephiroth from "../resources/characters/Sephiroth.png";
 import Pyra_Mythra from "../resources/characters/Pyra_Mythra.png";
+import Kazuya from "../resources/characters/Kazuya.png";
 
 
 export { BanjoKazooie }
@@ -168,3 +169,4 @@ export { ZeroSuitSamus }
 export { Steve }
 export { Sephiroth }
 export { Pyra_Mythra }
+export { Kazuya }

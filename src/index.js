@@ -100,6 +100,7 @@ class Container extends React.Component {
                 Isabelle: { name: 'Isabelle', picture: Imgs.Isabelle, status: 'NEUTRAL' },
                 Jigglypuff: { name: 'Jigglypuff', picture: Imgs.Jigglypuff, status: 'NEUTRAL' },
                 Joker: { name: 'Joker', picture: Imgs.Joker, status: 'NEUTRAL' },
+                Kazuya: { name: 'Kazuya', picture: Imgs.Kazuya, status: 'NEUTRAL' },
                 Ken: { name: 'Ken', picture: Imgs.Ken, status: 'NEUTRAL' },
                 KingDedede: { name: 'KingDedede', picture: Imgs.KingDedede, status: 'NEUTRAL' },
                 KingKRool: { name: 'KingKRool', picture: Imgs.KingKRool, status: 'NEUTRAL' },
