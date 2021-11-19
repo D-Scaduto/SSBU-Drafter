@@ -83,7 +83,7 @@ import Steve from "../resources/characters/Steve.png";
 import Sephiroth from "../resources/characters/Sephiroth.png";
 import Pyra_Mythra from "../resources/characters/Pyra_Mythra.png";
 import Kazuya from "../resources/characters/Kazuya.png";
-
+import Sora from "../resources/characters/Sora.png";
 
 export { BanjoKazooie }
 export { Bayonetta }
@@ -170,3 +170,4 @@ export { Steve }
 export { Sephiroth }
 export { Pyra_Mythra }
 export { Kazuya }
+export { Sora }
