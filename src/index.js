@@ -25,6 +25,7 @@ const CharacterBox = ({ name, picture, callBack }) =>
                 <button class="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
                 <button class="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
                 <button class="button" onClick={() => { callBack(name, "POOL"); close() }}> Pool </button>
+                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
                 <button class="button" onClick={() => { callBack(name, "NEUTRAL"); close() }}> Neutrual </button>
             </div>
         )}
@@ -42,6 +43,9 @@ const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
             break;
         case 'TEAM2':
             borderColorClass = "t2Border"
+            break;
+        case 'BAN':
+            borderColorClass = "ban"
             break;
         case 'NEUTRAL':
             break;
@@ -62,7 +66,8 @@ const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
                 <button class="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
                 <button class="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
                 <button class="button" onClick={() => { callBack(name, "POOL"); close() }}> Pool </button>
-            </div>)}
+                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
+            </div>)}       
     </Popup >
 }
 
@@ -260,6 +265,19 @@ class Container extends React.Component {
 
                     }
                 </div>
+
+                <div class="ban-container" >
+                    <div class="section-header">BANNED</div>
+                    <div id="ban-area" class="characterContainerPool">
+                        {
+                            Object.values(this.state.characterList)
+                                .filter(character => character.status === "BAN" && character.currentRound)
+                                .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
+
+                        }
+                    </div>
+                </div>
+
             </div>
 
 
