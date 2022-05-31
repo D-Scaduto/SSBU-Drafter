@@ -5,7 +5,7 @@ import './css/popup.css';
 function getTeamOneContainer(characterList) {
     return <div class="team1-container" >
         <div class="section-header">TEAM 1</div>
-        <div id="team1-area" class="characterContainerTeam1">
+        <div id="team1-section" class="char-containerTeam1">
             {
                 Object.values(characterList)
                     .filter(character => character.status === "TEAM1" && character.currentRound)
@@ -18,7 +18,7 @@ function getTeamOneContainer(characterList) {
 function getTeamTwoContainer(characterList) {
     return <div class="team2-container" >
         <div class="section-header">TEAM 2</div>
-        <div id="team2-area" class="characterContainerTeam2">
+        <div id="team2-section" class="char-containerTeam2">
 
             {
                 Object.values(characterList)
@@ -30,8 +30,8 @@ function getTeamTwoContainer(characterList) {
     </div>
 }
 
-function getCharacterContainer(characterList) {
-    return <div class="characterContainer">
+function getchar-container(characterList) {
+    return <div class="char-container">
         {
             Object.values(characterList)
                 .filter(character => {
@@ -45,9 +45,9 @@ function getCharacterContainer(characterList) {
 }
 
 function getPoolContainer(characterList) {
-    return <div class="characterContainerPoolContainer">
+    return <div class="char-containerPoolContainer">
         <div class="section-header">POOL</div>
-        <div id="pool-area" class="characterContainerPool">
+        <div id="pool-section" class="char-containerPool">
             {
                 Object.values(characterList)
                     .filter(character => character.status === "POOL" && character.currentRound)
@@ -58,6 +58,6 @@ function getPoolContainer(characterList) {
 }
 
 export { getPoolContainer }
-export { getCharacterContainer }
+export { getchar-container }
 export { getTeamTwoContainer }
 export { getTeamOneContainer }

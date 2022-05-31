@@ -251,99 +251,105 @@ class Container extends React.Component {
         })
     }
 
+    renderPoolContainer = () =>             
+    <div id="pool-section" class="section">
+        <div class="section-header">POOL</div>
+        <div class="section-body">
+            {
+                Object.values(this.state.characterList)
+                    .filter(character => character.status === "POOL" && character.currentRound)
+                    .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
+
+            }
+        </div>
+    </div>
+
+    renderAllCharsContainer = () =>             <div class="allChars" >
+
+<div class="all-char-header">
+    <div class="headerButtons">
+        <button class="headerButton" onClick={this.clearAll}>
+            Reset
+    </button>
+        <button class="headerButton" onClick={this.clearPool}>
+            Clear Pool
+    </button>
+        <button class="headerButton" onClick={this.clearTeams}>
+            Clear Teams
+    </button>
+    </div>
+    <div class="search-section">
+        <label id="search-text" >Search</label>
+        <input
+            type="text"
+            onChange={e => this.onSearchChange(e)}
+        />
+    </div>
+    </div>
+
+    <div class="char-container">
+
+        {
+            Object.values(this.state.characterList)
+                .filter(character => {
+                    let searchValue = RegExp(".*" + this.getSearchtext().toLocaleLowerCase() + ".*")
+                    return searchValue.test(character.name.toLocaleLowerCase()) && character.status === "NEUTRAL"
+                })
+                .map(character => <BorderedCharacterBox name={character.name} picture={character.picture} status={character.status}
+                    callBack={this.changeStatus} ></BorderedCharacterBox>)
+        }
+    </div>
+    </div>
+
+    renderTeamssection = () =>             <div id="team-section" >
+    <div id="team1-section" class="section">
+        <div class="section-header">TEAM 1</div>
+        <div class="section-body">
+            {
+                Object.values(this.state.characterList)
+                    .filter(character => character.status === "TEAM1" && character.currentRound)
+                    .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
+
+            }
+        </div>
+    </div>
+
+
+    <div id="team2-section" class="section" >
+        <div class="section-header">TEAM 2</div>
+        <div class="section-body">
+
+            {
+                Object.values(this.state.characterList)
+                    .filter(character => character.status === "TEAM2" && character.currentRound)
+                    .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
+
+            }
+        </div>
+    </div>
+    </div>
+
+    renderBanssection = () => 
+    <div id="ban-section" class="section" >
+        <div class="section-header">BANNED</div>
+        <div  class="section-body">
+            {
+                Object.values(this.state.characterList)
+                    .filter(character => character.status === "BAN" && character.currentRound)
+                    .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
+
+            }
+        </div>
+    </div>
+
 
     render() {
         return <div style={{ display: "flex" }}>
-
-            <div class="characterContainerPoolContainer">
-                <div class="section-header">POOL</div>
-                <div id="pool-area" class="characterContainerPool">
-                    {
-                        Object.values(this.state.characterList)
-                            .filter(character => character.status === "POOL" && character.currentRound)
-                            .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
-
-                    }
-                </div>
-
-                <div class="ban-container" >
-                    <div class="section-header">BANNED</div>
-                    <div id="ban-area" class="characterContainerPool">
-                        {
-                            Object.values(this.state.characterList)
-                                .filter(character => character.status === "BAN" && character.currentRound)
-                                .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
-
-                        }
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
-
-                <div class="headerButtons">
-                    <button class="headerButton" onClick={this.clearAll}>
-                        Reset
-                </button>
-                    <button class="headerButton" onClick={this.clearPool}>
-                        Clear Pool
-                </button>
-                    <button class="headerButton" onClick={this.clearTeams}>
-                        Clear Teams
-                </button>
-                </div>
-                <div className="search-container">
-                    <label id="txtCharSearch">Search </label>
-                    <input
-                        type="text"
-                        onChange={e => this.onSearchChange(e)}
-                    />
-                </div>
-
-
-                <div class="characterContainer">
-
-                    {
-                        Object.values(this.state.characterList)
-                            .filter(character => {
-                                let searchValue = RegExp(".*" + this.getSearchtext().toLocaleLowerCase() + ".*")
-                                return searchValue.test(character.name.toLocaleLowerCase()) && character.status === "NEUTRAL"
-                            })
-                            .map(character => <BorderedCharacterBox name={character.name} picture={character.picture} status={character.status}
-                                callBack={this.changeStatus} ></BorderedCharacterBox>)
-                    }
-                </div>
-            </div>
-
-
-            <div class="pickArea">
-                <div class="team1-container" >
-                    <div class="section-header">TEAM 1</div>
-                    <div id="team1-area" class="characterContainerTeam1">
-                        {
-                            Object.values(this.state.characterList)
-                                .filter(character => character.status === "TEAM1" && character.currentRound)
-                                .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
-
-                        }
-                    </div>
-                </div>
-
-
-                <div class="team2-container" >
-                    <div class="section-header">TEAM 2</div>
-                    <div id="team2-area" class="characterContainerTeam2">
-
-                        {
-                            Object.values(this.state.characterList)
-                                .filter(character => character.status === "TEAM2" && character.currentRound)
-                                .map(character => <CharacterBox name={character.name} picture={character.picture} callBack={this.changeStatus} ></CharacterBox>)
-
-                        }
-                    </div>
-                </div>
+            {this.renderAllCharsContainer()}
+            <div class="picked-sections">
+                {this.renderPoolContainer()}
+                {this.renderBanssection()}
+                {this.renderTeamssection()}
             </div>
         </div >
 
