@@ -1,7 +1,5 @@
-implement new layouts (see mock images in this dir)
-make components visibility toggleable, and have remaining components re-adjust size to fill the rest of the screen, within reasonable limits
+make components visibility toggleable, and have remaining components re-adjust 
 add preset visibility templates (Draft, Battle, All)
 
 bugs:
-    make sure pool picks stay within their bounds
-    strange sizeing on the BAN section when many characters were picked
+    - after the popup window on a character selection goes away, the character is on the top level and will be overlap with the stick header. This really needs a new popup library
