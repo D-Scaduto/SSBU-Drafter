@@ -22,10 +22,10 @@ const CharacterBox = ({ name, picture, callBack }) =>
         keepTooltipInside>
         {close => (
             <div>
+                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
+                <button class="button" onClick={() => { callBack(name, "POOL"); close() }}> Pool </button>
                 <button class="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
                 <button class="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
-                <button class="button" onClick={() => { callBack(name, "POOL"); close() }}> Pool </button>
-                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
                 <button class="button" onClick={() => { callBack(name, "NEUTRAL"); close() }}> Neutrual </button>
             </div>
         )}
@@ -63,10 +63,10 @@ const BorderedCharacterBox = ({ name, picture, status, callBack }) => {
         keepTooltipInside>
         {close => (
             <div>
+                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
+                <button class="button" onClick={() => { callBack(name, "POOL"); close() }}> Pool </button>
                 <button class="button" onClick={() => { callBack(name, "TEAM1"); close() }}> Team 1 </button>
                 <button class="button" onClick={() => { callBack(name, "TEAM2"); close() }}> Team 2 </button>
-                <button class="button" onClick={() => { callBack(name, "POOL"); close() }}> Pool </button>
-                <button class="button" onClick={() => { callBack(name, "BAN"); close() }}> Ban </button>
             </div>)}       
     </Popup >
 }
@@ -347,8 +347,8 @@ class Container extends React.Component {
         return <div style={{ display: "flex" }}>
             {this.renderAllCharsContainer()}
             <div class="picked-sections">
-                {this.renderPoolContainer()}
                 {this.renderBanssection()}
+                {this.renderPoolContainer()}
                 {this.renderTeamssection()}
             </div>
         </div >
