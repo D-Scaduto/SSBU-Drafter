@@ -1,12 +1,14 @@
 
 :root {
-    --pool-color: #E13921;
+    --pool-color: #9b21e1;
     --team-1-color: #2f6690;
     --team-2-color: #7a9b76;
+    --ban-color: #E13921;
 }
 
-body {
- box-sizing: border-box;
+
+body > * {
+    box-sizing: border-box;
 }
 
 .global-background {
@@ -15,99 +17,88 @@ body {
     background-color: #dcdcdc;
 }
 
-
-.characterContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 60%;
-}
-
-
-
-.team1-container{
+.section {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    height: 100%;
-    max-height: 50% ;
-    overflow-y:hidden ;
-    margin-bottom: 15px;
-}
-
-.team2-container{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 100%;
-    max-height: 50% ;
-    overflow-y:hidden ;
-    margin-top: 15px;
+    height: 25vh;
 }
 
 .section-header {
     display: flex;
-    border-radius: 10px 10px 0 0;
+    /* border-radius: 10px 10px 0 0; */
     background: #303036;
     padding: 2PX;
     justify-content: center;
     color: WHITE;
     FONT-SIZE: 25PX;
     height: 40px;
-    width: 200px;
 }
 
-.characterContainerPoolContainer {
+.section-body {
     display: flex;
+    margin-bottom: 2px;
+    justify-content: left;
+    align-items: flex-start;
+    height:100%;
+    overflow: auto;
+    flex-wrap: wrap;
+}
+
+.picked-sections {
+    display: flex;
+    width: 60%;
     flex-direction: column;
     position: fixed;
-    left: 30px;
-    bottom: 30px;
-    top: 30px;
+    right: 0;
 }
 
-.characterContainerPool  {
-    background-color: var(--pool-color);
+.allChars {
     display: flex;
-    border-radius: 0 0 10px 10px;
     flex-direction: column;
-    width: 200px;
-    height: 100%;
     align-items: center;
-    flex-direction: column;
-    overflow: auto;
+    width: 40% ;
+}
+
+#team1-section{
+    width: 50%;
+    margin-right: 2px;
+}
+
+
+#team2-section{
+    width: 50%;
 }
   
-.pickArea {
+#team-section {
     display: flex;
-    flex-direction: column;
-    width: 200px;
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    top: 30px;
+} 
+
+#pool-section {
+    height: 50vh;
 }
 
-.characterContainerTeam1{
+#pool-section .section-body{
+    background-color: var(--pool-color);
+}
+
+#ban-section .section-body{
+    background-color: var(--ban-color);
+}
+
+.team1-container{
+    width: 50%;
+}
+
+#team1-section  .section-body{
     background-color: var(--team-1-color);
-    display: flex;
     align-items: center;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    border-radius: 0 0 10px 10px;
-    overflow: auto
 }
 
-.characterContainerTeam2 {
+#team2-section  .section-body{
     background-color:  var(--team-2-color);
-    display: flex;
     align-items: center;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    border-radius:0 0 10px 10px;
-    overflow: auto
 }
 
 
@@ -140,7 +131,7 @@ body {
     max-width: 120px;
     max-height: 150px;
     position: relative;
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .characterBox img {
@@ -166,7 +157,11 @@ position: absolute;
     color: WHITE;
 }
 
-
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
 
 .headerButton {
     border-radius: 10px;
@@ -179,12 +174,11 @@ position: absolute;
     FONT-SIZE: 20PX;
 }
 
-.headerbuttons {
+.headerbuttons {    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
-    margin-top: 30px;  
+    margin: 20;
 }
 
 .poolBorder{
@@ -197,4 +191,23 @@ position: absolute;
 
 .t2Border{
     border: 5px solid var(--team-2-color)
+}
+
+#search-text {
+    margin-right: 4px;
+}
+
+.all-char-header {
+    position: sticky;
+    top: 0;
+    background-color: #dcdcdc;
+    width: 100%;
+    
+}
+
+
+.char-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
